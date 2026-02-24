@@ -1,0 +1,30 @@
+{
+  "rawMaterial": {
+    "title": "Matérias-Primas",
+    "name": "Nome",
+    "code": "Código",
+    "stockQuantity": "Quantidade em Estoque",
+    "stockQuantityKg": "Estoque (kg)"
+  },
+  "product": {
+    "title": "Produtos",
+    "name": "Nome",
+    "code": "Código",
+    "price": "Preço",
+    "ingredient": "Ingrediente",
+    "addIngredient": "Adicionar Ingrediente"
+  },
+  "optimization": {
+    "title": "Sugestão de Produção",
+    "run": "Otimizar Produção",
+    "suggestion": "Sugestão de Produção",
+    "quantity": "Quantidade",
+    "totalRevenue": "Receita Total",
+    "totalExpectedRevenue": "Receita Esperada Total"
+  },
+  "actions": {
+    "save": "Salvar",
+    "edit": "Editar",
+    "delete": "Excluir"
+  }
+}
