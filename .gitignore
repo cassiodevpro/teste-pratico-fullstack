@@ -1,0 +1,41 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven
+/target/
+
+# IDEs
+/.idea/
+*.iml
+*.ipr
+*.iws
+/.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Node/Vite
+node_modules/
+dist/
+
+# Misc
+.env
+
+# Test
+/test-output/
+
+# Docker
+*.pid
+postgres_data/
+
+# Others
+*.swp
+*.swo
+
