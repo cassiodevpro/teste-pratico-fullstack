@@ -1,0 +1,30 @@
+{
+  "rawMaterial": {
+    "title": "Raw Materials",
+    "name": "Name",
+    "code": "Code",
+    "stockQuantity": "Stock Quantity",
+    "stockQuantityKg": "Stock (kg)"
+  },
+  "product": {
+    "title": "Products",
+    "name": "Name",
+    "code": "Code",
+    "price": "Price",
+    "ingredient": "Ingredient",
+    "addIngredient": "Add Ingredient"
+  },
+  "optimization": {
+    "title": "Production Suggestion",
+    "run": "Optimize Production",
+    "suggestion": "Production Suggestion",
+    "quantity": "Quantity",
+    "totalRevenue": "Total Revenue",
+    "totalExpectedRevenue": "Total Expected Revenue"
+  },
+  "actions": {
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete"
+  }
+}
