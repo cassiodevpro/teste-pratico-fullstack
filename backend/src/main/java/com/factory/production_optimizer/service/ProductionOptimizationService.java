@@ -37,6 +37,8 @@ public class ProductionOptimizationService {
         List<ProductPotential> potentials = new ArrayList<>();
         for (Product p : products) {
             int maxUnits = maxUnitsPossible(p, stockMap);
+            // Arredonda para o inteiro mais próximo (caso haja cálculo decimal no futuro)
+            maxUnits = Math.round(maxUnits);
             BigDecimal totalValue = p.getPrice().multiply(BigDecimal.valueOf(maxUnits));
             potentials.add(new ProductPotential(p, maxUnits, totalValue));
         }
@@ -67,11 +69,20 @@ public class ProductionOptimizationService {
     }
 
     private int maxUnitsPossible(Product product, Map<Long, Double> stock) {
+        if (product.getIngredients() == null || product.getIngredients().isEmpty()) {
+            return 0;
+        }
         int max = Integer.MAX_VALUE;
         for (ProductIngredient pi : product.getIngredients()) {
             Long rmId = pi.getRawMaterial().getId();
-            double available = stock.getOrDefault(rmId, 0.0);
-            int possible = (int) (available / pi.getRequiredQuantity());
+            if (!stock.containsKey(rmId) || stock.get(rmId) == null || stock.get(rmId) <= 0) {
+                return 0;
+            }
+            double available = stock.get(rmId);
+            if (pi.getRequiredQuantity() == null || pi.getRequiredQuantity() <= 0) {
+                return 0;
+            }
+            int possible = (int) Math.floor(available / pi.getRequiredQuantity());
             if (possible < max) max = possible;
         }
         return max > 0 ? max : 0;

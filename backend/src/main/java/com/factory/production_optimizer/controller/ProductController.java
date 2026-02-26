@@ -25,8 +25,8 @@ public class ProductController {
     private final ProductService service;
 
     @GetMapping
-    public List<Product> findAll() {
-        return service.findAll();
+    public List<com.factory.production_optimizer.dto.ProductDTO> findAll() {
+        return service.findAllDTO();
     }
 
     @GetMapping("/{id}")

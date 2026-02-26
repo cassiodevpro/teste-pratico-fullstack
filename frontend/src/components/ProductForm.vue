@@ -29,6 +29,9 @@ function onSubmit() {
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
+  max-width: 350px;
+  margin: 2rem auto;
+  width: 100%;
 }
 .dark .coffee-form {
   background: #232323;

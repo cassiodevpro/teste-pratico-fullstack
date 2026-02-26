@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>{{ $t('product.title') }}</h1>
+  <div class="raw-materials-container">
+    <h1 style="text-align: center; margin-bottom: 24px;">{{ $t('product.title') }}</h1>
     <ProductForm v-model="selected" @submit="save">
       <template #ingredients>
         <div v-for="(ing, idx) in selected.ingredients || []" :key="idx">
@@ -11,13 +11,28 @@
         <button type="button" @click="addIngredient">{{ $t('product.addIngredient') }}</button>
       </template>
     </ProductForm>
-    <ul>
-      <li v-for="prod in products" :key="prod.id">
-        {{ prod.name }} ({{ prod.code }}) - {{ prod.price }}
-        <button @click="edit(prod)">{{ $t('actions.edit') }}</button>
+    <table class="products-table" style="margin: 0 auto; border-collapse: collapse; width: 40%; box-shadow: 0 2px 8px #05030033;">
+      <thead>
+      <tr>
+        <th style="text-align: center; padding: 8px;">{{ $t('product.name') }}</th>
+        <th style="text-align: center; padding: 8px;">{{ $t('product.code') }}</th>
+        <th style="text-align: center; padding: 8px;">{{ $t('product.price') }}</th>
+        <th style="text-align: center; padding: 8px;">{{ $t('actions.edit') }}</th>
+        <!-- <th style="text-align: center; padding: 8px;">{{ $t('actions.delete') }}</th> -->
+      </tr>
+      </thead>
+      <tbody>
+      <tr v-for="prod in products" :key="prod.id" style="border-bottom: 1px solid #ddd;">
+        <td style="text-align: center; padding: 8px;">{{ prod.name }}</td>
+        <td style="text-align: center; padding: 8px;">{{ prod.code }}</td>
+        <td style="text-align: center; padding: 8px;">{{ prod.price }}</td>
+        <td style="text-align: center; padding: 8px;">
+        <button @click="edit(prod)" style="margin-right: 4px;">{{ $t('actions.edit') }}</button>
         <button @click="remove(prod.id)">{{ $t('actions.delete') }}</button>
-      </li>
-    </ul>
+        </td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 <script setup>

@@ -34,6 +34,7 @@ function toggleTheme() {
         <router-link to="/optimize" class="nav-link" active-class="active">
           Otimizar
         </router-link>
+       
       </nav>
     </header>
     <main>
