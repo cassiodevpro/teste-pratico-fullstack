@@ -1,15 +1,11 @@
 <template>
   <form @submit.prevent="onSubmit" class="coffee-form">
     <label>Nome da matéria-prima</label>
-    <select v-model="form.name" required>
-      <option value="Green Bean">Grão Verde</option>
-      <option value="Roasted Bean">Grão Torrado</option>
-      <option value="Ground Roasted Bean">Grão Torrado Moído</option>
-    </select>
+    <input v-model="form.name" required />
     <label>Código</label>
     <input v-model="form.code" required />
-    <label>Estoque (kg)</label>
-    <input v-model.number="form.stockQuantity" type="number" min="0" step="0.01" required />
+    <label>Quantidade em estoque (kg)</label>
+    <input v-model.number="form.stockQuantity" type="number" min="0" required />
     <button type="submit">Salvar</button>
   </form>
 </template>
@@ -25,49 +21,16 @@ function onSubmit() {
 </script>
 <style scoped>
 .coffee-form {
-  background: #f5f3ea;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px #c2b28033;
+  max-width: 350px;
+  margin: 2rem auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
 }
-.dark .coffee-form {
-  background: #232323;
-  box-shadow: 0 2px 8px #0008;
-}
-.dark .coffee-form label {
-  color: #f5f3ea;
-}
-.dark .coffee-form input {
+.dark .coffee-form select {
   background: #181818;
   color: #f5f3ea;
   border: 1px solid #444;
-}
-.dark .coffee-form button {
-  background: #333;
-  color: #f5f3ea;
-}
-.coffee-form label {
-  color: #6b4f27;
-  font-weight: bold;
-}
-.coffee-form input {
-  border: 1px solid #bfa77a;
-  border-radius: 4px;
-  padding: 0.5rem;
-}
-.coffee-form button {
-  background: #6b4f27;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 0.7rem;
-  cursor: pointer;
-  font-weight: bold;
-}
-.coffee-form button:hover {
-  background: #8d6748;
 }
 </style>

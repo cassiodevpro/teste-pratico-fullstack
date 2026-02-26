@@ -7,7 +7,7 @@ import HomeView from '../views/HomeView.vue';
 
 
 const routes = [
-  { path: '/', component: HomeView },
+  { path: '/', component: () => import('../views/DashboardView.vue') },
   { path: '/raw-materials', component: RawMaterialsView },
   { path: '/products', component: ProductsView },
   { path: '/optimize', component: OptimizationView }
