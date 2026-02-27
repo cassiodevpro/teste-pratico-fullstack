@@ -20,6 +20,10 @@ import lombok.RequiredArgsConstructor;
 public class ProductService {
     private final ProductRepository repository;
 
+    public List<ProductDTO> filterDTO(String name, String code) {
+        return repository.filter(name, code).stream().map(this::toDTO).collect(java.util.stream.Collectors.toList());
+    }
+
     public List<Product> findAll() {
         return repository.findAll();
     }

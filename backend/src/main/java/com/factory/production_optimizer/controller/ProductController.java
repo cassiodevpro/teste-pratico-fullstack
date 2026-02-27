@@ -24,8 +24,12 @@ import lombok.RequiredArgsConstructor;
 public class ProductController {
     private final ProductService service;
 
+
     @GetMapping
-    public List<com.factory.production_optimizer.dto.ProductDTO> findAll() {
+    public List<com.factory.production_optimizer.dto.ProductDTO> findAll(String name, String code) {
+        if ((name != null && !name.isEmpty()) || (code != null && !code.isEmpty())) {
+            return service.filterDTO(name, code);
+        }
         return service.findAllDTO();
     }
 

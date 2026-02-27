@@ -24,8 +24,12 @@ import lombok.RequiredArgsConstructor;
 public class RawMaterialController {
     private final RawMaterialService service;
 
+
     @GetMapping
-    public List<RawMaterial> findAll() {
+    public List<RawMaterial> findAll(String name, String code) {
+        if ((name != null && !name.isEmpty()) || (code != null && !code.isEmpty())) {
+            return service.filter(name, code);
+        }
         return service.findAll();
     }
 
