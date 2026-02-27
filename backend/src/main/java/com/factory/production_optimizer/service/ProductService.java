@@ -71,7 +71,17 @@ public class ProductService {
         existing.setCode(updated.getCode());
         existing.setName(updated.getName());
         existing.setPrice(updated.getPrice());
-        existing.setIngredients(updated.getIngredients());
+
+        // Atualiza ingredientes manualmente
+        if (existing.getIngredients() != null) {
+            existing.getIngredients().clear();
+        }
+        if (updated.getIngredients() != null) {
+            for (var ing : updated.getIngredients()) {
+                ing.setProduct(existing); // garante vínculo
+                existing.getIngredients().add(ing);
+            }
+        }
         return repository.save(existing);
     }
 
