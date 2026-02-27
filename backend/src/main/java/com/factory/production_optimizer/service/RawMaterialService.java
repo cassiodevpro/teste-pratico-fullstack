@@ -16,6 +16,17 @@ import lombok.RequiredArgsConstructor;
 public class RawMaterialService {
     private final RawMaterialRepository repository;
 
+    public List<RawMaterial> filter(String name, String code) {
+        if (name != null && !name.isEmpty() && code != null && !code.isEmpty()) {
+            return repository.findByNameContainingIgnoreCaseAndCodeContainingIgnoreCase(name, code);
+        } else if (name != null && !name.isEmpty()) {
+            return repository.findByNameContainingIgnoreCase(name);
+        } else if (code != null && !code.isEmpty()) {
+            return repository.findByCodeContainingIgnoreCase(code);
+        }
+        return findAll();
+    }
+
     public List<RawMaterial> findAll() {
         return repository.findAll();
     }
